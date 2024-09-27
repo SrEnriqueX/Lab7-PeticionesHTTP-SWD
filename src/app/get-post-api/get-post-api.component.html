@@ -1,0 +1,66 @@
+<div class="mt-2 p-2 bg-danger text-white rounded text-center">
+    <h4>{{title}}</h4>
+</div>
+
+<div class="row pt-2">
+    <!-- Columna para la tabla de departamentos -->
+    <div class="col-md-8 col-sm-12">
+        <div class="card">
+            <div class="card-header bg-secondary text-white">
+                Departamento Lista-GET
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-bordered table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>N°</th>
+                                    <th>Nombre</th>
+                                    <th>logo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (item of listaDepartamento; track $index) {
+                                    <tr>
+                                        <td>{{$index+1}}</td>
+                                        <td>{{item.departmentName}}</td>
+                                        <td>{{item.departmentLogo}}</td>
+                                        
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Columna para el formulario de nuevo departamento -->
+    <div class="col-md-4 col-sm-12 mt-4 mt-md-0">
+        <div class="card">
+            <div class="card-header bg-secondary text-white">
+                Crear Departamento-POST
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <label for="nombre-departamento">Nombre de Departamento</label>
+                        <input type="text"  [(ngModel)]="depObj.departmentName" id="nombre-departamento" class="form-control" placeholder="Ingrese nombre de Departamento">
+                    </div>
+                    <div class="col-12 mt-3">
+                        <label for="logo-departamento">Logo de Departamento</label>
+                        <input type="text" [(ngModel)]="depObj.departmentLogo" id="logo-departamento" class="form-control" placeholder="Ingrese logo URL">
+                    </div>
+                </div>
+                <div class="row pt-3">
+                    <div class="col-12 d-flex justify-content-center">
+                        <button class="btn btn-danger" (click)="guardar()">Guardar</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
